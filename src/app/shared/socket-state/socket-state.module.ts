@@ -1,5 +1,5 @@
-import { Module } from '@nestjs/common'
-import { SocketStateService } from './socket-state.service'
+import { Module } from '@nestjs/common';
+import { SocketStateService } from './socket-state.service';
 
 @Module({
   providers: [SocketStateService],

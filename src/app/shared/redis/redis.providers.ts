@@ -9,8 +9,10 @@ export const redisProviders: Provider[] = [
   {
     useFactory: (): RedisClient => {
       return new Redis({
-        host: 'socket-redis',
+        host: '127.0.0.1',
         port: 6379,
+        password: '1eab8833e44a77959a27e0cde0f391b5ce3634c6',
+        connectTimeout: 30000,
       });
     },
     provide: REDIS_SUBSCRIBER_CLIENT,
@@ -18,8 +20,10 @@ export const redisProviders: Provider[] = [
   {
     useFactory: (): RedisClient => {
       return new Redis({
-        host: 'socket-redis',
+        host: '127.0.0.1',
         port: 6379,
+        password: '1eab8833e44a77959a27e0cde0f391b5ce3634c6',
+        connectTimeout: 30000,
       });
     },
     provide: REDIS_PUBLISHER_CLIENT,

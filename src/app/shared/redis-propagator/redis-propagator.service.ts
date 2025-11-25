@@ -48,8 +48,8 @@ export class RedisPropagatorService {
 
     return this.socketStateService
       .get(userId)
-      .filter((socket) => socket.id !== socketId)
-      .forEach((socket) => socket.emit(event, data));
+      .filter(socket => socket.id !== socketId)
+      .forEach(socket => socket.emit(event, data));
   };
 
   private consumeEmitToAllEvent = (
@@ -65,7 +65,7 @@ export class RedisPropagatorService {
 
     return this.socketStateService
       .getAll()
-      .forEach((socket) => socket.emit(event, data));
+      .forEach(socket => socket.emit(event, data));
   };
 
   public propagateEvent(eventInfo: RedisSocketEventSendDTO): boolean {
@@ -83,7 +83,6 @@ export class RedisPropagatorService {
       REDIS_SOCKET_EVENT_EMIT_AUTHENTICATED_NAME,
       eventInfo,
     );
-
     return true;
   }
 

@@ -8,7 +8,9 @@ export const initAdapters = (app: INestApplication): INestApplication => {
   const socketStateService = app.get(SocketStateService);
   const redisPropagatorService = app.get(RedisPropagatorService);
 
-  app.useWebSocketAdapter(new SocketStateAdapter(app, socketStateService, redisPropagatorService));
+  app.useWebSocketAdapter(
+    new SocketStateAdapter(app, socketStateService, redisPropagatorService),
+  );
 
   return app;
 };

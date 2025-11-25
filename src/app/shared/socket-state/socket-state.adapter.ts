@@ -11,24 +11,29 @@ interface TokenPayload {
 }
 
 export interface AuthenticatedSocket extends socketio.Socket {
-  auth: TokenPayload;
+  auth: TokenPayload | null;
 }
 
 export class SocketStateAdapter extends IoAdapter implements WebSocketAdapter {
   public constructor(
-    private readonly app: INestApplicationContext,
+    app: INestApplicationContext,
     private readonly socketStateService: SocketStateService,
     private readonly redisPropagatorService: RedisPropagatorService,
   ) {
     super(app);
   }
 
-  public create(port: number, options: socketio.ServerOptions = {}): socketio.Server {
+  public create(
+    port: number,
+    options: socketio.ServerOptions = {},
+  ): socketio.Server {
     const server = super.createIOServer(port, options);
     this.redisPropagatorService.injectSocketServer(server);
 
     server.use(async (socket: AuthenticatedSocket, next) => {
-      const token = socket.handshake.query?.token || socket.handshake.headers?.authorization;
+      const token =
+        socket.handshake.query?.token ||
+        socket.handshake.headers?.authorization;
 
       if (!token) {
         socket.auth = null;
@@ -59,7 +64,8 @@ export class SocketStateAdapter extends IoAdapter implements WebSocketAdapter {
         this.socketStateService.add(socket.auth.userId, socket);
 
         socket.on('disconnect', () => {
-          this.socketStateService.remove(socket.auth.userId, socket);
+          if (socket.auth !== null)
+            this.socketStateService.remove(socket.auth.userId, socket);
 
           socket.removeAllListeners('disconnect');
         });

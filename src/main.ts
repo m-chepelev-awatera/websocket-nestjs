@@ -4,7 +4,7 @@ import { initAdapters } from './app/adapters.init';
 import { AppModule } from './app/app.module';
 
 async function bootstrap(): Promise<void> {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule.register({}));
 
   initAdapters(app);
 

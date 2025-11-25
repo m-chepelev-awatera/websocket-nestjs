@@ -1,23 +1,34 @@
 {
   "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2017",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "target": "es2018",
     "sourceMap": true,
     "outDir": "./dist",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "baseUrl": "./",
-    "paths": {
-      "@app/*": ["src/app/*"],
-      "@src/*": ["src/*"]
-    },
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "skipLibCheck": true,
     "incremental": true,
-    "noUnusedParameters": true,
-    "importHelpers": true
-  },
-  "exclude": ["node_modules", "dist"]
+    "noUnusedLocals": true,
+    "paths": {
+      "@/*": ["*"],
+      "@app/*": ["app/*"],
+      "@access-control/*": ["modules/access-control/*"],
+      "@common/*": ["common/*"],
+      "@lib/*": ["lib/*"],
+      "@auth/*": ["modules/auth/*"],
+      "@config/*": ["modules/config/*"],
+      "@users/*": ["modules/users/*"],
+      "@user-roles/*": ["modules/user-roles/*"],
+      "@messages/*": ["modules/messages/*"],
+    }
+  }
 }
