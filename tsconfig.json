@@ -23,12 +23,12 @@
       "@app/*": ["app/*"],
       "@access-control/*": ["modules/access-control/*"],
       "@common/*": ["common/*"],
+      "@chats/*": ["modules/chats/*"],
       "@lib/*": ["lib/*"],
       "@auth/*": ["modules/auth/*"],
       "@config/*": ["modules/config/*"],
       "@users/*": ["modules/users/*"],
       "@user-roles/*": ["modules/user-roles/*"],
-      "@messages/*": ["modules/messages/*"],
     }
   }
 }

@@ -10,7 +10,7 @@ import { BaseEntityStringIdSchema } from '../schemas/base-entity-string-id.schem
 
 export abstract class BaseStringIdRepository<
   TDomainModel extends StringIdDomainModel,
-  TSchemaDefinition extends BaseEntityStringIdSchema,
+  TSchemaDefinition extends BaseEntityStringIdSchema
 > extends BaseRepository<string, TDomainModel, TSchemaDefinition> {
   /**
    * Абстрактный репозиторий для моделей, у которых идентификатором выступает строка

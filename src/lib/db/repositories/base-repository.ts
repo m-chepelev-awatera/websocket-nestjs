@@ -12,7 +12,7 @@ import { BaseEntitySchema } from '../schemas/base-entity.schema';
 export abstract class BaseRepository<
   TId,
   TDomainModel extends BaseDomainModel<TId>,
-  TSchemaDefinition extends BaseEntitySchema,
+  TSchemaDefinition extends BaseEntitySchema
 > {
   /**
    * Абстрактный репозиторий с методами вставки, апдейта и получения модели по id
@@ -26,7 +26,7 @@ export abstract class BaseRepository<
 
   protected toModels(items: Document[] & TSchemaDefinition[]): TDomainModel[] {
     return items.map(
-      (i) =>
+      i =>
         this.schemaFactory.createFromSchema(
           getOriginalSchemaValues(i),
         ) as TDomainModel,
@@ -43,6 +43,30 @@ export abstract class BaseRepository<
       await this.dbModel.create([this.schemaFactory.create(domainModel)], {
         session: session,
       });
+    } catch (e) {
+      if (isDuplicateError(e)) {
+        throw new ConflictError(
+          `Document for model '${domainModel.toString()}' already exists in '${
+            this.dbModel.modelName
+          }'`,
+        );
+      } else throw e;
+    }
+  }
+
+  public async createOne(
+    domainModel: TDomainModel,
+    session?: ClientSession,
+  ): Promise<TDomainModel> {
+    this.ensureDomainModel({ domainModel });
+    try {
+      const res = await this.dbModel.create(
+        [this.schemaFactory.create(domainModel)],
+        {
+          session: session,
+        },
+      );
+      return this.toModel(res[0]);
     } catch (e) {
       if (isDuplicateError(e)) {
         throw new ConflictError(
@@ -100,7 +124,7 @@ export abstract class BaseRepository<
   }
 
   async getByIds(ids: ReadonlyArray<TId>) {
-    ids.forEach((id) => this.ensureIdCheck({ id }));
+    ids.forEach(id => this.ensureIdCheck({ id }));
     const items = await this.dbModel.find({ _id: { $in: ids } });
 
     return this.toModels(items);

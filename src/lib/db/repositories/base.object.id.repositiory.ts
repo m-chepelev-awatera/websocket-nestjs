@@ -11,7 +11,7 @@ import { BaseEntityObjectIdSchema } from '../schemas/base-entity-object-id.schem
 
 export abstract class BaseObjectIdRepository<
   TDomainModel extends ObjectIdDomainModel,
-  TSchemaDefinition extends BaseEntityObjectIdSchema,
+  TSchemaDefinition extends BaseEntityObjectIdSchema
 > extends BaseRepository<Types.ObjectId, TDomainModel, TSchemaDefinition> {
   /**
    * Абстрактный репозиторий для моделей, у которых идентификатором выступает Types.ObjectId монгуса

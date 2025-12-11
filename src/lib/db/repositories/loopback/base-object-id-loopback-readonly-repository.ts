@@ -11,7 +11,7 @@ import {
 
 export abstract class BaseObjectIdLoopbackReadonlyRepository<
   TDomainModel extends BaseObjectIdLoopbackDomainModel,
-  TSchemaDefinition extends BaseObjectIdLoopbackSchema,
+  TSchemaDefinition extends BaseObjectIdLoopbackSchema
 > extends BaseLoopbackReadonlyRepository<
   Types.ObjectId,
   TDomainModel,

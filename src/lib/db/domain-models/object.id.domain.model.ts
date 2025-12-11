@@ -5,7 +5,8 @@ import {
   BaseDomainModel,
   BaseModel,
   IBaseDomainModel,
-} from '@/lib/db/domain-models/base.domain.model';
+} from '@lib/db/domain-models/base.domain.model';
+import { v4 } from 'uuid';
 
 export const BaseObjectIdModel = BaseModel.extend({
   id: z.instanceof(Types.ObjectId),
@@ -13,13 +14,15 @@ export const BaseObjectIdModel = BaseModel.extend({
 export type BaseObjectIdModel = z.infer<typeof BaseObjectIdModel>;
 
 export interface IObjectIdDomainModel {
-  id: Types.ObjectId;
-  createdAt: Date;
-  updatedAt: Date;
-  changeStamp: string;
+  readonly id: Types.ObjectId;
+  readonly createdAt: Date;
+  readonly updatedAt: Date;
+  readonly changeStamp: string;
 }
 
-export abstract class ObjectIdDomainModel extends BaseDomainModel<Types.ObjectId> {
+export abstract class ObjectIdDomainModel extends BaseDomainModel<
+  Types.ObjectId
+> {
   protected constructor({
     id,
     createdAt,
@@ -28,18 +31,33 @@ export abstract class ObjectIdDomainModel extends BaseDomainModel<Types.ObjectId
   }: IBaseDomainModel<Types.ObjectId>) {
     super({ id, createdAt, updatedAt, changeStamp }, ensureObjectId);
   }
+
+  static CreateWithDefaultData({
+    id,
+  }: {
+    id?: Types.ObjectId;
+  } = {}): IBaseDomainModel<Types.ObjectId> {
+    const now = new Date();
+    return {
+      id: id ?? new Types.ObjectId(),
+      createdAt: now,
+      updatedAt: now,
+      changeStamp: v4(),
+    };
+  }
 }
 
 export interface ZodBaseObjectIdModelSchemaConstructor<
-  Schema extends z.ZodType<BaseObjectIdModel>,
+  Schema extends z.ZodType<BaseObjectIdModel>
 > {
   new (value: z.infer<Schema>): Readonly<z.infer<Schema>> & ObjectIdDomainModel;
   schema: Schema;
 }
 
 export function getZodBaseObjectIdDomainModel<
-  Schema extends z.ZodType<BaseObjectIdModel>,
+  Schema extends z.ZodType<BaseObjectIdModel>
 >(schema: Schema): ZodBaseObjectIdModelSchemaConstructor<Schema> {
+  // eslint-disable-next-line @typescript-eslint/class-name-casing
   const res = class extends ObjectIdDomainModel {
     static schema = schema;
     constructor(value: z.infer<Schema>) {

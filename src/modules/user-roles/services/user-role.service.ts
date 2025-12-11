@@ -30,7 +30,7 @@ export class UserRoleService {
       }
     }
 
-    const roleNames = roles.map((role) => role.name);
+    const roleNames = roles.map(role => role.name);
 
     return roleNames;
   }

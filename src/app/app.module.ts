@@ -1,10 +1,10 @@
 import { Module, DynamicModule } from '@nestjs/common';
 
 import { SharedModule } from './shared/shared.module';
-import { EventsGateway } from './test.gateway';
 
 import { DatabaseModule } from './database/database.module';
 import { DatabaseTestingModule } from './database/database.testing.module';
+import { ChatGateway } from './gateways/chat.getaway';
 
 interface IModuleOptions {
   isTestingModule?: boolean;
@@ -22,7 +22,7 @@ export class AppModule {
         SharedModule,
       ],
       controllers: [],
-      providers: [EventsGateway],
+      providers: [ChatGateway],
     };
   }
 }
