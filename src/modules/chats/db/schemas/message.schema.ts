@@ -17,7 +17,7 @@ export class AuthorSchema {
   userId: Types.ObjectId;
 }
 
-@Schema({ versionKey: false, collection: 'Message' })
+@Schema({ versionKey: false, collection: 'MessageV2' })
 export class MessageSchemaDefinition extends BaseEntityObjectIdSchema {
   @Prop({ type: MSchema.Types.ObjectId, required: true })
   public readonly conversationId: Types.ObjectId;

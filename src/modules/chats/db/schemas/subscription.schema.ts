@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Schema as MSchema } from 'mongoose';
 import { BaseEntityObjectIdSchema } from '@/lib/db/schemas/base-entity-object-id.schema';
 
-@Schema({ versionKey: false, collection: 'Subscription' })
+@Schema({ versionKey: false, collection: 'SubscriptionV2' })
 export class SubscriptionSchemaDefinition extends BaseEntityObjectIdSchema {
   @Prop({ type: Date, required: false })
   public readonly lastRead?: Date;
