@@ -20,7 +20,7 @@ import { ArgumentError } from '@lib/errors/argument.error';
 import {
   BaseObjectIdLoopbackDomainModel,
   IBaseObjectIdLoopbackDomainModel,
-} from '@/lib/db/domain-models/base.objectId.loopback.domain.model';
+} from '@/lib/domain-models/base.objectId.loopback.domain.model';
 import { BaseObjectIdLoopbackSchema } from '@/lib/db/schemas/base-object-id-loopback.schema';
 import { BaseObjectIdLoopbackRepository } from '@/lib/db/repositories/loopback/base-object-id-loopback-repository';
 

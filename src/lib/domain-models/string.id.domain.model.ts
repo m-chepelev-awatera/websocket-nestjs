@@ -2,7 +2,7 @@ import { notNullOrEmptyString } from '@lib/validation/validation.helpers';
 import {
   BaseDomainModel,
   IBaseDomainModel,
-} from '@/lib/db/domain-models/base.domain.model';
+} from '@/lib/domain-models/base.domain.model';
 
 export interface IStringIdDomainModel {
   id: string;

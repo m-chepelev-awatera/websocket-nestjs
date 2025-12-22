@@ -14,7 +14,7 @@ import {
   SchemaFactory,
 } from '@nestjs/mongoose';
 import { Injectable } from '@nestjs/common';
-import { ObjectIdDomainModel } from '@/lib/db/domain-models/object.id.domain.model';
+import { ObjectIdDomainModel } from '@/lib/domain-models/object.id.domain.model';
 import { v4 } from 'uuid';
 import { Test, TestingModule } from '@nestjs/testing';
 import {

@@ -10,7 +10,7 @@ import {
 import {
   BaseObjectIdLoopbackDomainModel,
   IBaseObjectIdLoopbackDomainModel,
-} from '@/lib/db/domain-models/base.objectId.loopback.domain.model';
+} from '@/lib/domain-models/base.objectId.loopback.domain.model';
 
 export interface IUser extends IBaseObjectIdLoopbackDomainModel {
   username: string;

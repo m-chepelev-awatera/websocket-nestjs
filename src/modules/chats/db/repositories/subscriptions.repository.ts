@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import {
   SubscriptionDomainModel,
   ensureSubscription,
@@ -34,5 +34,16 @@ export class SubscriptionsRepository extends BaseObjectIdRepository<
     if (!result) return null;
 
     return this.toModel(result);
+  }
+
+  async findAllConversationSubs(
+    conversationId: Types.ObjectId,
+  ): Promise<SubscriptionDomainModel[]> {
+    const result = await this.model
+      .find({ conversationId })
+      .sort({ createdAt: 1 })
+      .exec();
+
+    return this.toModels(result);
   }
 }

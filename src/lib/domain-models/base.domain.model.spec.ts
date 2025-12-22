@@ -3,7 +3,7 @@ import { ArgumentError } from '@lib/errors/argument.error';
 import {
   BaseDomainModel,
   IBaseDomainModel,
-} from '@/lib/db/domain-models/base.domain.model';
+} from '@/lib/domain-models/base.domain.model';
 import {
   EnsureCheck,
   getEnsureCustom,

@@ -14,7 +14,7 @@ export class SubscriptionSchemaDefinition extends BaseEntityObjectIdSchema {
   public readonly hasUnreadTeamTag?: boolean;
 
   @Prop({ type: MSchema.Types.Mixed, required: false })
-  public readonly lastMessage?: any;
+  public readonly lastMessageText?: any;
 
   @Prop({ type: String, required: true })
   public readonly userId: string;

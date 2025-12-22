@@ -5,7 +5,7 @@ import { isDuplicateError } from '@lib/errors/db.error.helpers';
 import { ConflictError } from '@lib/errors/conflict.error';
 import { NotFoundError } from '@lib/errors/not.found.error';
 import { EnsureCheck } from '@lib/validation/validation.helpers';
-import { BaseLoopbackDomainModel } from '@/lib/db/domain-models/base.loopback.domain.model';
+import { BaseLoopbackDomainModel } from '@/lib/domain-models/base.loopback.domain.model';
 import { BaseLoopbackSchema } from '@lib/db/schemas/base-loopback.schema';
 import { BaseLoopbackReadonlyRepository } from '@lib/db/repositories/loopback/base-loopback-readonly-repository';
 

@@ -91,7 +91,6 @@ export class ChatsController {
     const data = CreateMessageSchema.parse({
       ...dto,
       conversationId: id,
-      userId: userId,
       author:
         dto.type === 'user' && dto.authorName && dto.authorNameEn
           ? { name: dto.authorName, nameEn: dto.authorNameEn, userId }

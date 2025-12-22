@@ -2,7 +2,7 @@ import { Model, Types } from 'mongoose';
 
 import { BaseLoopbackReadonlyRepository } from '@/lib/db/repositories/loopback/base-loopback-readonly-repository';
 import { BaseObjectIdLoopbackSchema } from '@/lib/db/schemas/base-object-id-loopback.schema';
-import { BaseObjectIdLoopbackDomainModel } from '@/lib/db/domain-models/base.objectId.loopback.domain.model';
+import { BaseObjectIdLoopbackDomainModel } from '@/lib/domain-models/base.objectId.loopback.domain.model';
 import { ISchemaFactory } from '@/lib/db/ischema.factory';
 import {
   EnsureCheck,

@@ -4,9 +4,9 @@ import {
   BaseLoopbackDomainModel,
   BaseLoopbackModel,
   IBaseLoopbackDomainModel,
-} from '@/lib/db/domain-models/base.loopback.domain.model';
+} from '@/lib/domain-models/base.loopback.domain.model';
 import { ensureObjectId } from '@lib/validation/validation.helpers';
-import { filterUndefinedPropsOfDomainModel } from '../../helpers/object-helpers';
+import { filterUndefinedPropsOfDomainModel } from '../helpers/object-helpers';
 
 export const BaseObjectIdLoopbackModel = BaseLoopbackModel.extend({
   id: z.instanceof(Types.ObjectId),

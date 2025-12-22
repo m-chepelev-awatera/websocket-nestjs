@@ -5,7 +5,7 @@ import {
   EnsureCheck,
   ensureObjectId,
 } from '@lib/validation/validation.helpers';
-import { BaseLoopbackDomainModel } from '@/lib/db/domain-models/base.loopback.domain.model';
+import { BaseLoopbackDomainModel } from '@/lib/domain-models/base.loopback.domain.model';
 import { BaseObjectIdLoopbackSchema } from '@lib/db/schemas/base-object-id-loopback.schema';
 import { BaseLoopbackRepository } from '@lib/db/repositories/loopback/base-loopback-repository';
 

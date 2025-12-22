@@ -7,7 +7,7 @@ import {
   ensureObjectId,
 } from '@lib/validation/validation.helpers';
 import { getOriginalSchemaValues } from '@/lib/transforms/to-original-schema-data-type-values';
-import { MinBaseDomainModel } from '../domain-models/min-base.domain-model';
+import { MinBaseDomainModel } from '../../domain-models/min-base.domain-model';
 import { MinBaseLoopbackSchema } from '../schemas/min-base-loopback.schema';
 
 export abstract class MinBaseReadonlyRepository<

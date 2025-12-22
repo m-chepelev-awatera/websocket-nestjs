@@ -5,7 +5,7 @@ import {
   notNullOrEmptyString,
 } from '@lib/validation/validation.helpers';
 import { BaseRepository } from '@/lib/db/repositories/base-repository';
-import { StringIdDomainModel } from '@/lib/db/domain-models/string.id.domain.model';
+import { StringIdDomainModel } from '@/lib/domain-models/string.id.domain.model';
 import { BaseEntityStringIdSchema } from '../schemas/base-entity-string-id.schema';
 
 export abstract class BaseStringIdRepository<

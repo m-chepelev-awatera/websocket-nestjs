@@ -2,7 +2,7 @@ import z from 'zod';
 
 import { Types } from 'mongoose';
 import { ensureObjectId } from '@lib/validation/validation.helpers';
-import { filterUndefinedPropsOfDomainModel } from '../../helpers/object-helpers';
+import { filterUndefinedPropsOfDomainModel } from '../helpers/object-helpers';
 
 export const MinModel = z
   .object({

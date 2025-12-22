@@ -2,11 +2,12 @@ import { getEnsureCustom } from '@lib/validation/validation.helpers';
 import {
   getZodBaseObjectIdDomainModel,
   ObjectIdDomainModel,
-} from '@/lib/db/domain-models/object.id.domain.model';
+} from '@/lib/domain-models/object.id.domain.model';
 import {
   CreateMessageSchema,
   MessageSchema,
 } from '@chats/schemas/message.schema';
+// import { Mutable } from '@/lib/types/mutable-object';
 
 export class MessageDomainModel extends getZodBaseObjectIdDomainModel(
   MessageSchema,
@@ -27,6 +28,8 @@ export class MessageDomainModel extends getZodBaseObjectIdDomainModel(
     return new MessageDomainModel(data);
   }
 }
+
+// type MutableMessageDomainModel = Mutable<MessageDomainModel>;
 
 export const ensureMessage = getEnsureCustom(
   (dm: MessageDomainModel) => dm instanceof MessageDomainModel,

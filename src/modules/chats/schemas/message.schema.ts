@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 import { ObjectIdSchema } from '@/lib/zod-schemas/object-id-schema';
-import { BaseObjectIdModel } from '@/lib/db/domain-models/object.id.domain.model';
+import { BaseObjectIdModel } from '@/lib/domain-models/object.id.domain.model';
 
 export const MessageType = z.enum(['system', 'user', 'log', 'todo']);
 export type MessageType = z.infer<typeof MessageType>;
@@ -34,3 +34,10 @@ export const CreateMessageSchema = MessageSchema.omit({
 });
 
 export type CreateMessageSchema = z.infer<typeof CreateMessageSchema>;
+
+export const NewMessageForSubSchema = MessageSchema.pick({
+  text: true,
+  updatedAt: true,
+});
+
+export type NewMessageForSubSchema = z.infer<typeof NewMessageForSubSchema>;

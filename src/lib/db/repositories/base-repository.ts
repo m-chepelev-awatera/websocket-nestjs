@@ -4,7 +4,7 @@ import { isDuplicateError } from '@lib/errors/db.error.helpers';
 import { ConflictError } from '@lib/errors/conflict.error';
 import { NotFoundError } from '@lib/errors/not.found.error';
 import { ISchemaFactory } from '@lib/db/ischema.factory';
-import { BaseDomainModel } from '@/lib/db/domain-models/base.domain.model';
+import { BaseDomainModel } from '@/lib/domain-models/base.domain.model';
 import { EnsureCheck } from '@lib/validation/validation.helpers';
 import { getOriginalSchemaValues } from '@lib/transforms/to-original-schema-data-type-values';
 import { BaseEntitySchema } from '../schemas/base-entity.schema';

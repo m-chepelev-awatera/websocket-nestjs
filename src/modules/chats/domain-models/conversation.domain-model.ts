@@ -1,7 +1,7 @@
 import { getEnsureCustom } from '@lib/validation/validation.helpers';
-import { getZodBaseObjectIdDomainModel } from '@/lib/db/domain-models/object.id.domain.model';
+import { getZodBaseObjectIdDomainModel } from '@/lib/domain-models/object.id.domain.model';
 import { ConversationSchema } from '@chats/schemas/conversation.schema';
-import { ObjectIdDomainModel } from '@/lib/db/domain-models/object.id.domain.model';
+import { ObjectIdDomainModel } from '@/lib/domain-models/object.id.domain.model';
 
 export class ConversationDomainModel extends getZodBaseObjectIdDomainModel(
   ConversationSchema,

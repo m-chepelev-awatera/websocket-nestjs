@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import {
   MessageDomainModel,
   ensureMessage,
@@ -20,5 +20,16 @@ export class MessagesRepository extends BaseObjectIdRepository<
     protected schemaFactory: MessageSchemaFactory,
   ) {
     super(model, schemaFactory, ensureMessage);
+  }
+
+  async findConversationMessages(
+    conversationId: Types.ObjectId,
+  ): Promise<MessageDomainModel[]> {
+    const result = await this.model
+      .find({ conversationId })
+      .sort({ createdAt: 1 })
+      .exec();
+
+    return this.toModels(result);
   }
 }

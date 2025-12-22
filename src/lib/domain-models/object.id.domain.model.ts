@@ -5,7 +5,7 @@ import {
   BaseDomainModel,
   BaseModel,
   IBaseDomainModel,
-} from '@lib/db/domain-models/base.domain.model';
+} from '@/lib/domain-models/base.domain.model';
 import { v4 } from 'uuid';
 
 export const BaseObjectIdModel = BaseModel.extend({

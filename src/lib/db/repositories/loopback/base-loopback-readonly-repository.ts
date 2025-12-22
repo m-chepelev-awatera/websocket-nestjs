@@ -4,7 +4,7 @@ import { NotFoundError } from '@lib/errors/not.found.error';
 import { ISchemaFactory } from '@lib/db/ischema.factory';
 import { EnsureCheck } from '@lib/validation/validation.helpers';
 import { getOriginalSchemaValues } from '@/lib/transforms/to-original-schema-data-type-values';
-import { BaseLoopbackDomainModel } from '@/lib/db/domain-models/base.loopback.domain.model';
+import { BaseLoopbackDomainModel } from '@/lib/domain-models/base.loopback.domain.model';
 import { BaseLoopbackSchema } from '@/lib/db/schemas/base-loopback.schema';
 
 export abstract class BaseLoopbackReadonlyRepository<

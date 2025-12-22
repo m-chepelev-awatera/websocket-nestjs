@@ -1,31 +1,39 @@
 import { Provider } from '@nestjs/common';
 import Redis from 'ioredis';
+import { ConfigService } from '@config/services/config-service';
 
-import { REDIS_PUBLISHER_CLIENT, REDIS_SUBSCRIBER_CLIENT } from './redis.constants';
+import {
+  REDIS_PUBLISHER_CLIENT,
+  REDIS_SUBSCRIBER_CLIENT,
+} from './redis.constants';
 
 export type RedisClient = Redis.Redis;
 
 export const redisProviders: Provider[] = [
   {
-    useFactory: (): RedisClient => {
+    useFactory: (configService: ConfigService): RedisClient => {
+      const { redis } = configService.getConfig();
       return new Redis({
-        host: '127.0.0.1',
-        port: 6379,
-        password: '1eab8833e44a77959a27e0cde0f391b5ce3634c6',
-        connectTimeout: 30000,
+        host: redis.host,
+        port: redis.port,
+        password: redis.password,
+        connectTimeout: redis.connectTimeout,
       });
     },
+    inject: [ConfigService],
     provide: REDIS_SUBSCRIBER_CLIENT,
   },
   {
-    useFactory: (): RedisClient => {
+    useFactory: (configService: ConfigService): RedisClient => {
+      const { redis } = configService.getConfig();
       return new Redis({
-        host: '127.0.0.1',
-        port: 6379,
-        password: '1eab8833e44a77959a27e0cde0f391b5ce3634c6',
-        connectTimeout: 30000,
+        host: redis.host,
+        port: redis.port,
+        password: redis.password,
+        connectTimeout: redis.connectTimeout,
       });
     },
+    inject: [ConfigService],
     provide: REDIS_PUBLISHER_CLIENT,
   },
 ];

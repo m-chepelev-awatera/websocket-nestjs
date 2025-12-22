@@ -1,4 +1,4 @@
-import { BaseObjectIdModel } from '@/lib/db/domain-models/object.id.domain.model';
+import { BaseObjectIdModel } from '@/lib/domain-models/object.id.domain.model';
 import { z } from 'zod';
 
 export const ConversationSchema = BaseObjectIdModel.extend({

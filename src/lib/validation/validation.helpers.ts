@@ -47,6 +47,17 @@ export function ensureObjectId(paramObject: { [key: string]: Types.ObjectId }) {
   return value;
 }
 
+export function ensureIsObjectIdOrHexString(paramObject: {
+  [key: string]: Types.ObjectId | string;
+}) {
+  const { name, value } = getParamNameAndValue(paramObject);
+  if (value == null || !isObjectIdOrHexString(value))
+    throw new ArgumentError(
+      `Invalid argument '${name}': value '${value}' is not a valid ObjectId or hex string`,
+    );
+  return value;
+}
+
 export function ensureNumber(paramObject: { [key: string]: number }) {
   notNull(paramObject);
   const { name, value } = getParamNameAndValue(paramObject);

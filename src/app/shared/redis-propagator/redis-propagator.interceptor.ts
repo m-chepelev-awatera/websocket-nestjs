@@ -31,6 +31,7 @@ export class RedisPropagatorInterceptor<T>
           ...data,
           socketId: socket.id,
           userId: socket.auth?.userId || '',
+          conversationId: socket.auth?.conversationId || '',
         });
       }),
     );

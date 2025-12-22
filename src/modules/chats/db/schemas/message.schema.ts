@@ -2,7 +2,8 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Schema as MSchema, Types } from 'mongoose';
 
 import { BaseEntityObjectIdSchema } from '@/lib/db/schemas/base-entity-object-id.schema';
-import { MessageType } from '../../types';
+
+export type MessageType = 'system' | 'user' | 'log' | 'todo';
 
 @Schema({ _id: false })
 export class AuthorSchema {

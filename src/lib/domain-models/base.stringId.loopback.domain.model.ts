@@ -3,9 +3,9 @@ import {
   BaseLoopbackDomainModel,
   BaseLoopbackModel,
   IBaseLoopbackDomainModel,
-} from '@/lib/db/domain-models/base.loopback.domain.model';
+} from '@/lib/domain-models/base.loopback.domain.model';
 import { ensureString } from '@lib/validation/validation.helpers';
-import { filterUndefinedPropsOfDomainModel } from '../../helpers/object-helpers';
+import { filterUndefinedPropsOfDomainModel } from '../helpers/object-helpers';
 
 export const BaseStringIdLoopbackModel = BaseLoopbackModel.extend({
   id: z.string(),

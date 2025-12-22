@@ -5,7 +5,7 @@ import {
   EnsureCheck,
   ensureObjectId,
 } from '@lib/validation/validation.helpers';
-import { ObjectIdDomainModel } from '@/lib/db/domain-models/object.id.domain.model';
+import { ObjectIdDomainModel } from '@/lib/domain-models/object.id.domain.model';
 import { BaseRepository } from '@/lib/db/repositories/base-repository';
 import { BaseEntityObjectIdSchema } from '../schemas/base-entity-object-id.schema';
 
