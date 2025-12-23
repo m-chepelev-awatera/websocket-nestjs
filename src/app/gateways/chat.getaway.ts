@@ -28,6 +28,7 @@ import { CreateMessageSchema } from '@/modules/chats/schemas/message.schema';
   cors: {
     origin: '*',
   },
+  transports: ['websocket'],
 })
 export class ChatGateway
   implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {

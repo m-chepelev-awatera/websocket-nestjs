@@ -48,7 +48,7 @@ export const WsAuthMiddleware = (
         throw new UnauthorizedException('Unauthorized');
       }
 
-      (socket.handshake as HandshakeWithAuth).headers.userId = userId.toString();
+      (socket.handshake as HandshakeWithAuth).auth.userId = userId.toString();
 
       const conversationId = (socket.handshake as HandshakeWithAuth).auth
         .conversationId;
